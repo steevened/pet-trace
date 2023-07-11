@@ -1,15 +1,17 @@
-import { GoogleLogin, googleLogout } from '@react-oauth/google';
-import { useStore } from '@/lib/hooks/useStore';
-import axios from '../lib/helpers/axios.helper';
-import Cookies from 'js-cookie';
-import Image from 'next/image';
-import { useEffect } from 'react';
-import Navbar from '@/components/layout/Navbar';
+import { useQuery } from '@tanstack/react-query';
+import { getCities, useCities } from '@/lib/services/cities.services';
 
 export default function Home() {
+  const { data, isLoading, isError } = useCities();
+
+  console.log(data);
+
   return (
-    <main>
-      <Navbar />
+    <main className="">
+      <div className="mt-10">
+        <h2 className="text-3xl text-center">WELCOME TO PARA CUANDO</h2>
+      </div>
+      {/* <Navbar /> */}
     </main>
   );
 }
