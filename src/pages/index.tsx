@@ -7,9 +7,20 @@ export default function Home() {
   console.log(data);
 
   return (
-    <main className="">
-      <div className="mt-10">
-        <h2 className="text-3xl text-center">WELCOME TO PARA CUANDO</h2>
+    <main className="container">
+      <div className="mt-10 text-center">
+        <h2 className="text-5xl font-semibold md:text-6xl">Para Cuándo</h2>
+        <h3 className="mt-5 text-2xl">Selecciona una ciudad para continuar</h3>
+        <ul className="grid gap-5 my-10 sm:grid-cols-2 place-items-center">
+          {data?.map((city) => (
+            <li
+              key={city.id}
+              className="relative w-full h-64 border rounded-lg"
+            >
+              <p className="absolute bottom-0 p-5 font-semibold">{city.name}</p>
+            </li>
+          ))}
+        </ul>
       </div>
       {/* <Navbar /> */}
     </main>
