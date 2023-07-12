@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { getCities, useCities } from '@/lib/services/cities.services';
+import Image from 'next/image';
 
 export default function Home() {
   const { data, isLoading, isError } = useCities();
@@ -15,9 +16,19 @@ export default function Home() {
           {data?.map((city) => (
             <li
               key={city.id}
-              className="relative w-full h-64 border rounded-lg"
+              className="relative w-full h-64 border rounded-lg group overflow-hidden"
             >
-              <p className="absolute bottom-0 p-5 font-semibold">{city.name}</p>
+              <Image
+                src={city.image_url}
+                alt={city.name}
+                width={1000}
+                height={1000}
+                className="object-cover w-full h-full "
+              />
+              <p className="absolute bottom-0 p-5 font-semibold opacity-0 group-hover:opacity-100 duration-100 z-10">
+                {city.name} - {city.country}
+              </p>
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-black/50 duration-100 z-0" />
             </li>
           ))}
         </ul>

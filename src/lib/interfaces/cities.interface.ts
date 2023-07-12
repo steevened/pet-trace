@@ -4,4 +4,6 @@ export interface CitiesResponse {
   id: string;
   name: string;
   country: string;
+  slug: string;
+  image_url: string;
 }
