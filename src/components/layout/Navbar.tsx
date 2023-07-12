@@ -29,8 +29,8 @@ const Navbar: FC<NavbarProps> = ({}) => {
   });
 
   return (
-    <header className="flex justify-between">
-      <Link href={'/'}>FG</Link>
+    <div className="flex justify-between">
+      {/* <Link href={'/'}>FG</Link> */}
       <nav>
         <Button onClick={() => login()} className="bg-red-200">
           log in
@@ -73,7 +73,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
           </div>
         )}
       </nav>
-    </header>
+    </div>
   );
 };
 

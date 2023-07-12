@@ -1,18 +1,27 @@
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import { ThemeProvider } from '@/components/ThemeProvider';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactElement, ReactNode } from 'react';
+import { NextPage } from 'next';
 
-export default function App({ Component, pageProps }: AppProps) {
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
+
+type AppPropsWithLayout<P = {}> = AppProps & {
+  Component: NextPageWithLayout<P>;
+} & P;
+
+export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const queryClient = new QueryClient();
+  const getLayout = Component.getLayout ?? ((page) => page);
+
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-      <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!}>
-        <QueryClientProvider client={queryClient}>
-          <Component {...pageProps} />
-        </QueryClientProvider>
-      </GoogleOAuthProvider>
-    </ThemeProvider>
+    <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!}>
+      <QueryClientProvider client={queryClient}>
+        {getLayout(<Component {...pageProps} />)}
+      </QueryClientProvider>
+    </GoogleOAuthProvider>
   );
 }
