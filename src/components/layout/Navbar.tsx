@@ -6,6 +6,8 @@ import Link from 'next/link';
 import { FC, useEffect } from 'react';
 import Image from 'next/image';
 import { Button } from '../ui/button';
+import { Input } from '../ui/input';
+import { Search } from 'lucide-react';
 
 interface NavbarProps {}
 
@@ -29,12 +31,22 @@ const Navbar: FC<NavbarProps> = ({}) => {
   });
 
   return (
-    <div className="flex justify-between">
-      {/* <Link href={'/'}>FG</Link> */}
-      <nav>
-        <Button onClick={() => login()} className="bg-red-200">
+    <div className="flex justify-between items-center border py-2 px-4 gap-5">
+      <div>
+        <Link className="font-semibold text-3xl text-gradient" href={'/'}>
+          FG
+        </Link>
+      </div>
+      <form className=" w-full relative">
+        <Input className="pl-10" placeholder="Buscar..." />
+        <button className="absolute top-1/2 -translate-y-1/2 left-2">
+          <Search className="text-foreground/50 hover:text-foreground duration-200" />
+        </button>
+      </form>
+      <nav className="flex justify-between items-center">
+        {/* <Button onClick={() => login()} className="bg-red-200">
           log in
-        </Button>
+        </Button> */}
         {!isAuthenticated && (
           <GoogleLogin
             auto_select

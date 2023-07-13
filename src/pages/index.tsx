@@ -8,7 +8,7 @@ export default function Home() {
   console.log(data);
 
   return (
-    <main className="container">
+    <div className="container">
       <div className="mt-10 text-center">
         <h2 className="text-5xl font-semibold md:text-6xl text-gradient  py-1">
           Para Hoy
@@ -38,6 +38,6 @@ export default function Home() {
           ))}
         </ul>
       </div>
-    </main>
+    </div>
   );
 }
