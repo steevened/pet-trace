@@ -31,16 +31,16 @@ const Navbar: FC<NavbarProps> = ({}) => {
   });
 
   return (
-    <div className="flex justify-between items-center border py-2 px-4 gap-5">
+    <div className="flex justify-between items-center border py-2 px-4 gap-5 fixed w-full ">
       <div>
         <Link className="font-semibold text-3xl text-gradient" href={'/'}>
-          FG
+          PH
         </Link>
       </div>
       <form className=" w-full relative">
         <Input className="pl-10" placeholder="Buscar..." />
         <button className="absolute top-1/2 -translate-y-1/2 left-2">
-          <Search className="text-foreground/50 hover:text-foreground duration-200" />
+          <Search className="text-muted-foreground hover:text-foreground duration-200" />
         </button>
       </form>
       <nav className="flex justify-between items-center">
@@ -48,26 +48,28 @@ const Navbar: FC<NavbarProps> = ({}) => {
           log in
         </Button> */}
         {!isAuthenticated && (
-          <GoogleLogin
-            auto_select
-            onSuccess={async (codeResponse) => {
-              console.log(`codeResponse`, codeResponse);
-              if (!codeResponse.credential) {
-                return window.location.reload();
-              }
-              Cookies.set('token', codeResponse.credential);
-              try {
-                await axios.post('/auth/login');
-                setAuthenticated();
-              } catch (error) {
-                console.log(error);
-              }
-            }}
-            onError={() => {
-              console.log('Login Failed');
-            }}
-            useOneTap={true}
-          />
+          <div>
+            <GoogleLogin
+              auto_select
+              onSuccess={async (codeResponse) => {
+                console.log(`codeResponse`, codeResponse);
+                if (!codeResponse.credential) {
+                  return window.location.reload();
+                }
+                Cookies.set('token', codeResponse.credential);
+                try {
+                  await axios.post('/auth/login');
+                  setAuthenticated();
+                } catch (error) {
+                  console.log(error);
+                }
+              }}
+              onError={() => {
+                console.log('Login Failed');
+              }}
+              useOneTap={true}
+            />
+          </div>
         )}
         {isAuthenticated && (
           <div className="flex flex-col">

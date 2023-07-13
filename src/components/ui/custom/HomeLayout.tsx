@@ -7,7 +7,7 @@ const HomeLayout: FC<HomeLayoutProps> = ({ children }) => {
   return (
     <main>
       <Navbar />
-      {children}
+      <div className="pt-[58px]">{children}</div>
     </main>
   );
 };

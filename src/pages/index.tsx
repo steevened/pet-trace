@@ -5,7 +5,7 @@ import Link from 'next/link';
 export default function Home() {
   const { data, isLoading, isError } = useCities();
 
-  console.log(data);
+  // console.log(data);
 
   return (
     <div className="container">
