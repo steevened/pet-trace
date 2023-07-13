@@ -7,7 +7,7 @@ import { FC, useEffect } from 'react';
 import Image from 'next/image';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
-import { Search } from 'lucide-react';
+import { MoreVertical, Search } from 'lucide-react';
 
 interface NavbarProps {}
 
@@ -31,7 +31,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
   });
 
   return (
-    <div className="flex justify-between items-center border py-2 px-4 gap-5 fixed w-full ">
+    <div className="flex justify-between items-center border py-2 px-4 gap-5 fixed w-full shadow-lg shadow-black/10 z-50 bg-background">
       <div>
         <Link className="font-semibold text-3xl text-gradient" href={'/'}>
           PH
@@ -48,28 +48,35 @@ const Navbar: FC<NavbarProps> = ({}) => {
           log in
         </Button> */}
         {!isAuthenticated && (
-          <div>
-            <GoogleLogin
-              auto_select
-              onSuccess={async (codeResponse) => {
-                console.log(`codeResponse`, codeResponse);
-                if (!codeResponse.credential) {
-                  return window.location.reload();
-                }
-                Cookies.set('token', codeResponse.credential);
-                try {
-                  await axios.post('/auth/login');
-                  setAuthenticated();
-                } catch (error) {
-                  console.log(error);
-                }
-              }}
-              onError={() => {
-                console.log('Login Failed');
-              }}
-              useOneTap={true}
-            />
-          </div>
+          <>
+            <div className="hidden md:block">
+              <GoogleLogin
+                auto_select
+                onSuccess={async (codeResponse) => {
+                  console.log(`codeResponse`, codeResponse);
+                  if (!codeResponse.credential) {
+                    return window.location.reload();
+                  }
+                  Cookies.set('token', codeResponse.credential);
+                  try {
+                    await axios.post('/auth/login');
+                    setAuthenticated();
+                  } catch (error) {
+                    console.log(error);
+                  }
+                }}
+                onError={() => {
+                  console.log('Login Failed');
+                }}
+                useOneTap={true}
+              />
+            </div>
+            <div className="block md:hidden">
+              <Button size="icon" variant={'secondary'}>
+                <MoreVertical />
+              </Button>
+            </div>
+          </>
         )}
         {isAuthenticated && (
           <div className="flex flex-col">

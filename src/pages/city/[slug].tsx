@@ -26,7 +26,7 @@ const CityPage: NextPageWithLayout = () => {
         <div className="absolute text-background z-10">
           <h3 className="text-4xl md:text-5xl font-semibold">{data?.name}</h3>
         </div>
-        <div className="absolute inset-0   bg-black/50 z-0 " />
+        <div className="absolute inset-0   bg-black/20 z-0 " />
       </div>
     </div>
   );
