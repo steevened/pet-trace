@@ -13,7 +13,7 @@ export default function Home() {
         <h2 className="text-5xl font-semibold md:text-6xl text-gradient  py-1">
           Para Hoy
         </h2>
-        <h3 className="mt-2.5 text-2xl font-medium">
+        <h3 className="mt-2.5 text-2xl font-medium text-muted-foreground">
           Selecciona una ciudad para continuar
         </h3>
         <ul className="grid gap-5 my-10 sm:grid-cols-2 place-items-center">

@@ -72,7 +72,11 @@ const Navbar: FC<NavbarProps> = ({}) => {
               />
             </div>
             <div className="block md:hidden">
-              <Button size="icon" variant={'secondary'}>
+              <Button
+                size="icon"
+                variant={'secondary'}
+                className="text-muted-foreground"
+              >
                 <MoreVertical />
               </Button>
             </div>

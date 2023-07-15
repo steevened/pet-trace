@@ -11,8 +11,6 @@ const CityPage: NextPageWithLayout = () => {
     router.query.slug as string
   );
 
-  console.log(data);
-
   return (
     <div>
       <div className="h-[calc(100vh-200px)] relative flex items-center justify-center">
@@ -25,6 +23,7 @@ const CityPage: NextPageWithLayout = () => {
         />
         <div className="absolute text-background z-10">
           <h3 className="text-4xl md:text-5xl font-semibold">{data?.name}</h3>
+          {/* <span>TODO: add city description</span> */}
         </div>
         <div className="absolute inset-0   bg-black/20 z-0 " />
       </div>
