@@ -11,7 +11,7 @@ const Home: NextPageWithLayout = () => {
 
   return (
     <div>
-      <div className="w-full h-[80vh] bg-[url(https://images.pexels.com/photos/16922984/pexels-photo-16922984/free-photo-of-german-shepherd-lying-down.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)] bg-center bg-no-repeat bg-cover relative flex items-center justify-center text-background text-center">
+      <div className="w-full h-[calc(100vh-54px)] bg-[url(https://images.pexels.com/photos/16922984/pexels-photo-16922984/free-photo-of-german-shepherd-lying-down.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)] bg-center bg-no-repeat bg-cover relative flex items-center justify-center text-background text-center">
         <div className="  flex  flex-col">
           <h2 className="text-5xl font-semibold md:text-6xl  mb-10 ">
             Rastro Mascotas

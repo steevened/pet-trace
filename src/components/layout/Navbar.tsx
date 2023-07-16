@@ -7,11 +7,23 @@ import { FC, useEffect } from 'react';
 import Image from 'next/image';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
-import { Bone, MoreVertical, Search } from 'lucide-react';
+import {
+  Bell,
+  Bone,
+  LogOut,
+  MessageCircle,
+  MoreVertical,
+  Search,
+  User,
+  User2,
+} from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '../ui/dropdown-menu';
 
@@ -117,18 +129,55 @@ const Navbar: FC<NavbarProps> = ({}) => {
           </>
         )}
         {isAuthenticated && (
-          <div className="flex flex-col">
-            <button onClick={logOut} className="mt-10">
-              LOG OUT
-            </button>
-            <h2>{authData?.name}</h2>
-            <h2>{authData?.email}</h2>
-            <Image
-              src={authData?.picture || ''}
-              alt="profile image"
-              width={100}
-              height={100}
-            />
+          <div className="flex gap-5 ">
+            <div>
+              <Button
+                size={'icon'}
+                variant={'secondary'}
+                className="text-muted-foreground"
+              >
+                <Bell />
+              </Button>
+            </div>
+            <div>
+              <Button
+                size={'icon'}
+                variant={'secondary'}
+                className="text-muted-foreground"
+              >
+                <MessageCircle />
+              </Button>
+            </div>
+            <div>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    size={'icon'}
+                    variant={'secondary'}
+                    className="text-muted-foreground"
+                  >
+                    <User2 />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="m-1 ">
+                  <DropdownMenuLabel>Mi cuenta</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuGroup>
+                    <DropdownMenuItem>
+                      <User className="mr-2 h-4 w-4" />
+                      <span>Perfil</span>
+                    </DropdownMenuItem>
+                  </DropdownMenuGroup>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuGroup>
+                    <DropdownMenuItem role="button" onClick={logOut}>
+                      <LogOut className="mr-2 h-4 w-4" />
+                      <span>Cerrar sesión</span>
+                    </DropdownMenuItem>
+                  </DropdownMenuGroup>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
           </div>
         )}
       </nav>

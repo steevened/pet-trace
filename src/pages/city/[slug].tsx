@@ -15,7 +15,6 @@ const CityPage: NextPageWithLayout = () => {
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
-    // Add any other desired CSS properties
   };
 
   return (
