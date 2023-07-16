@@ -129,52 +129,120 @@ const Navbar: FC<NavbarProps> = ({}) => {
           </>
         )}
         {isAuthenticated && (
-          <div className="flex gap-5 ">
-            <div>
-              <Button
-                size={'icon'}
-                variant={'secondary'}
-                className="text-muted-foreground"
-              >
-                <Bell />
-              </Button>
+          <div>
+            <div className="hidden md:flex gap-5 ">
+              <div>
+                <Button
+                  size={'icon'}
+                  variant={'secondary'}
+                  className="text-muted-foreground"
+                >
+                  <Bell />
+                </Button>
+              </div>
+              <div>
+                <Button
+                  size={'icon'}
+                  variant={'secondary'}
+                  className="text-muted-foreground"
+                >
+                  <MessageCircle />
+                </Button>
+              </div>
+              <div>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button
+                      size={'icon'}
+                      variant={'secondary'}
+                      className="text-muted-foreground"
+                    >
+                      <User2 />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="m-1 ">
+                    <DropdownMenuLabel>Mi cuenta</DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuGroup>
+                      <DropdownMenuItem>
+                        <User className="mr-2 h-4 w-4" />
+                        <span>Perfil</span>
+                      </DropdownMenuItem>
+                    </DropdownMenuGroup>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuGroup>
+                      <DropdownMenuItem role="button" onClick={logOut}>
+                        <LogOut className="mr-2 h-4 w-4" />
+                        <span>Cerrar sesión</span>
+                      </DropdownMenuItem>
+                    </DropdownMenuGroup>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
             </div>
-            <div>
-              <Button
-                size={'icon'}
-                variant={'secondary'}
-                className="text-muted-foreground"
-              >
-                <MessageCircle />
-              </Button>
-            </div>
-            <div>
+            <div className="flex md:hidden">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button
-                    size={'icon'}
+                    size="icon"
                     variant={'secondary'}
                     className="text-muted-foreground"
                   >
-                    <User2 />
+                    <MoreVertical />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="m-1 ">
-                  <DropdownMenuLabel>Mi cuenta</DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuGroup>
-                    <DropdownMenuItem>
-                      <User className="mr-2 h-4 w-4" />
-                      <span>Perfil</span>
-                    </DropdownMenuItem>
-                  </DropdownMenuGroup>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuGroup>
-                    <DropdownMenuItem role="button" onClick={logOut}>
-                      <LogOut className="mr-2 h-4 w-4" />
-                      <span>Cerrar sesión</span>
-                    </DropdownMenuItem>
-                  </DropdownMenuGroup>
+                <DropdownMenuContent className="space-y-1">
+                  <div className=" ">
+                    <Button
+                      // size={'icon'}
+                      variant={'secondary'}
+                      className="text-muted-foreground w-full justify-start gap-2"
+                    >
+                      <Bell />
+                      <span>Notificaciones</span>
+                    </Button>
+                  </div>
+                  <div className=" ">
+                    <Button
+                      // size={'icon'}
+                      variant={'secondary'}
+                      className="text-muted-foreground w-full justify-start gap-2"
+                    >
+                      <MessageCircle />
+                      <span>Mensajes</span>
+                    </Button>
+                  </div>
+                  <div>
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <Button
+                          // size={'icon'}
+                          variant={'secondary'}
+                          className="text-muted-foreground w-full justify-start gap-2"
+                        >
+                          <User2 />
+                          <span>Cuenta</span>
+                        </Button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent className="m-1 ">
+                        <DropdownMenuLabel>Mi cuenta</DropdownMenuLabel>
+                        <DropdownMenuSeparator />
+                        <DropdownMenuGroup>
+                          <DropdownMenuItem>
+                            <User className="mr-2 h-4 w-4" />
+                            <span>Perfil</span>
+                          </DropdownMenuItem>
+                        </DropdownMenuGroup>
+                        <DropdownMenuSeparator />
+                        <DropdownMenuGroup>
+                          <DropdownMenuItem role="button" onClick={logOut}>
+                            <LogOut className="mr-2 h-4 w-4" />
+                            <span>Cerrar sesión</span>
+                          </DropdownMenuItem>
+                        </DropdownMenuGroup>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+                  </div>
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
