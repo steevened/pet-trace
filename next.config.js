@@ -12,6 +12,7 @@ const nextConfig = {
       'lh3.googleusercontent.com',
       'images.unsplash.com',
       'unsplash.com',
+      'images.pexels.com',
     ],
   },
 };
