@@ -39,7 +39,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
   return (
     <div className="flex justify-between items-center border py-2 px-4 gap-5 fixed w-full shadow-lg shadow-black/10 z-50 bg-background">
       <div>
-        <Link className="font-semibold text-3xl text-gradient" href={'/'}>
+        <Link className="font-semibold text-3xl " href={'/'}>
           <Bone className="text-foreground" strokeWidth={2} size={36} />
         </Link>
       </div>
