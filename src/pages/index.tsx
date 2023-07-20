@@ -7,8 +7,6 @@ import HomeLayout from '@/components/layout/HomeLayout';
 const Home: NextPageWithLayout = () => {
   const { data, isLoading, isError } = useCities();
 
-  // console.log(data);
-
   return (
     <div>
       <div className="w-full h-[calc(100vh-54px)] bg-[url(https://images.pexels.com/photos/16922984/pexels-photo-16922984/free-photo-of-german-shepherd-lying-down.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)] bg-center bg-no-repeat bg-cover relative flex items-center justify-center text-background text-center">
@@ -26,6 +24,13 @@ const Home: NextPageWithLayout = () => {
           <h3 className="mt-2.5 text-4xl font-medium text-foreground">
             Selecciona una ciudad para continuar
           </h3>
+          {data?.length === 0 && !isLoading && (
+            <div className="mt-10 text-center">
+              <h3 className="mt-2.5 text-4xl font-medium text-foreground">
+                Información actualmente no disponible
+              </h3>
+            </div>
+          )}
           <ul className="grid gap-5 my-10 sm:grid-cols-2 place-items-center">
             {data?.map((city) => (
               <Link
