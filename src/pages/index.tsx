@@ -10,8 +10,8 @@ const Home: NextPageWithLayout = () => {
   return (
     <div>
       <div className="w-full h-[calc(100vh-54px)] bg-[url(https://images.pexels.com/photos/16922984/pexels-photo-16922984/free-photo-of-german-shepherd-lying-down.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)] bg-center bg-no-repeat bg-cover relative flex items-center justify-center text-background text-center">
-        <div className="  flex  flex-col">
-          <h2 className="text-5xl font-semibold md:text-6xl  mb-10 ">
+        <div className="flex flex-col ">
+          <h2 className="mb-10 text-5xl font-semibold md:text-6xl ">
             Rastro Mascotas
           </h2>
           <h3 className="text-2xl font-medium ">
@@ -36,19 +36,19 @@ const Home: NextPageWithLayout = () => {
               <Link
                 href={`/city/${city.slug}`}
                 key={city.id}
-                className="relative w-full h-64 border rounded-lg group overflow-hidden"
+                className="relative w-full h-64 overflow-hidden rounded-lg group"
               >
                 <Image
                   src={city.image_url}
                   alt={city.name}
                   width={1000}
                   height={1000}
-                  className="object-cover w-full h-full group-hover:scale-110 duration-200"
+                  className="object-cover w-full h-full duration-200 group-hover:scale-110"
                 />
-                <p className="absolute bottom-0 p-5 font-semibold  group-hover:opacity-100 duration-200 z-10 text-background">
+                <p className="absolute bottom-0 z-10 p-5 font-semibold duration-200 group-hover:opacity-100 text-background">
                   {city.name} - {city.country}
                 </p>
-                <div className="absolute inset-0 bg-black/50  z-0" />
+                <div className="absolute inset-0 z-0 bg-black/50" />
               </Link>
             ))}
           </ul>
