@@ -8,7 +8,7 @@ const HomeLayout: FC<HomeLayoutProps> = ({ children }) => {
   return (
     <main>
       <Navbar />
-      <div className="pt-[54px]">{children}</div>
+      <div className="pt-[54px] min-h-[calc(100vh-105px)]">{children}</div>
       <Footer />
     </main>
   );

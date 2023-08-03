@@ -14,7 +14,7 @@ const Home: NextPageWithLayout = () => {
           <h2 className="mb-10 text-5xl font-semibold md:text-6xl ">
             Rastro Mascotas
           </h2>
-          <h3 className="text-2xl font-medium ">
+          <h3 className="text-xl font-medium md:text-2xl ">
             La comunidad que rescata y encuentra mascotas perdidas
           </h3>
         </div>
