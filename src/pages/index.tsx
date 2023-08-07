@@ -12,7 +12,7 @@ const Home: NextPageWithLayout = () => {
       <div className="w-full h-[calc(100vh-54px)] bg-[url(https://images.pexels.com/photos/16922984/pexels-photo-16922984/free-photo-of-german-shepherd-lying-down.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)] bg-center bg-no-repeat bg-cover relative flex items-center justify-center text-background text-center">
         <div className="flex flex-col ">
           <h2 className="mb-10 text-5xl font-semibold md:text-6xl ">
-            Rastro Mascotas
+            Pet Trace 
           </h2>
           <h3 className="text-xl font-medium md:text-2xl ">
             La comunidad que rescata y encuentra mascotas perdidas
