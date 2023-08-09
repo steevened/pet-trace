@@ -15,7 +15,7 @@ const Home: NextPageWithLayout = () => {
             Pet Trace 
           </h2>
           <h3 className="text-xl font-medium md:text-2xl ">
-            La comunidad que rescata y encuentra mascotas perdidas
+            La comunidad que encuentra mascotas perdidas
           </h3>
         </div>
       </div>
